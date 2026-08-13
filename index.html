@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>TirzeTrack | Controle de Emagrecimento</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Hanken+Grotesk:wght@700&amp;display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet">
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#0a2540",
+            "surface": "#f8f9fa",
+            "on-surface": "#0a2540",
+            "accent": "#000000",
+            "outline": "#d1d5db",
+            "surface-variant": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "2rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "24px",
+            "container-padding-mobile": "24px",
+            "section-gap": "120px",
+            "unit": "8px",
+            "container-padding-desktop": "60px"
+          },
+          "fontFamily": {
+            "body-md": ["Manrope"],
+            "headline-lg": ["Manrope"],
+            "display-lg": ["Manrope"],
+            "label-caps": ["Hanken Grotesk"]
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    .dynamic-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+    }
+
+    .skew-box {
+      transform: skewY(-2deg);
+    }
+
+    .skew-box>* {
+      transform: skewY(2deg);
+    }
+
+    .glass-header {
+      background: rgba(248, 249, 250, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    .phone-frame {
+      position: relative;
+      width: 320px;
+      height: 650px;
+      background: #000;
+      border-radius: 40px;
+      padding: 12px;
+      box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.3);
+    }
+
+    .phone-inner {
+      background: #fff;
+      width: 100%;
+      height: 100%;
+      border-radius: 32px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .stagger-image {
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.08));
+    }
+  </style>
+</head>
+
+<body class="bg-surface font-body-md text-on-surface antialiased overflow-x-hidden">
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 glass-header border-b border-outline/20">
+    <div class="max-w-7xl mx-auto px-container-padding-desktop h-20 flex items-center justify-between">
+      <div class="flex items-center gap-12">
+        <div class="flex items-center gap-3">
+          <img src="assets/logo.png" alt="TirzeTRACK Logo" class="w-10 h-10 rounded-full border border-primary/20" />
+          <span class="font-display-lg text-2xl font-extrabold tracking-tighter text-primary">TirzeTRACK</span>
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+          <a class="text-sm font-semibold hover:text-accent transition-colors" href="index.html">Início</a>
+          <a class="text-sm font-semibold hover:text-accent transition-colors" href="index.html#recursos">Recursos</a>
+          <a class="text-sm font-semibold hover:text-accent transition-colors" href="support.html">FAQ</a>
+        </div>
+      </div>
+      <a href="baixar.html" class="bg-accent text-white px-6 py-2.5 rounded-full text-sm font-bold hover:scale-105 transition-all">
+        Download App
+      </a>
+    </div>
+  </nav>
+  <!-- Hero Section -->
+  <section class="relative pt-40 pb-20 overflow-hidden" id="home">
+    <div class="max-w-7xl mx-auto px-container-padding-desktop relative z-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="space-y-8">
+
+          <h1 class="font-display-lg text-6xl md:text-7xl font-extrabold leading-[1.1] tracking-tight text-[#2A828C]">
+            Controle seu <span class="italic">emagrecimento</span> com precisão inteligente.
+          </h1>
+          <p class="text-lg text-on-surface/70 max-w-lg leading-relaxed">
+            Acompanhamento inteligente para Tirzepatida, Retratutida, Semaglutida, Ozempic®, Mounjaro® entre outros. Monitore dosagens, efeitos e progresso com a
+            tecnologia mais avançada do mercado.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 pt-4">
+            <a href="baixar.html"
+              class="bg-accent text-white px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 group">
+              Baixar Agora
+              <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">east</span>
+            </a>
+            <div class="flex items-center gap-3 px-2">
+              <div class="flex -space-x-3">
+                <div class="w-10 h-10 rounded-full border-2 border-surface bg-gray-200"
+                  style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDgUtuqmEHcTVZ8C3_oYu48p6k4NoR0VJimulpJiEtyPJgC6p-wNuZuagJ7rOAdnJMURa5QBCDdVnO65denoBl4TjZic_lZb22sVNkyUzhvXJMg393iMwgxsMFmH2HbHvc-xDP0_DBEMNOFu47p2NkZVXvg3jpidmnUh8U5S16E6wqtrk2PrpMJtyowYDuJVizGZXWwkNzVXEQKoDjyVQUvv504WazDTZIrk4JU4Y32sH4jgwsiJ08'); background-size: cover;">
+                </div>
+                <div class="w-10 h-10 rounded-full border-2 border-surface bg-gray-300"
+                  style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDFoqKqTEfONSTmEa3CyujNVS-zt_MygNVnAf9WjUKbjTZR7LZj3ayupUJqSTY9doNiR3B97kuD0P1Lhz_5Ng-Qb98SU27RvaJgHK0KGE9CqkVP61HVPLtyh-9Dr0EhfeoaoR8fjrmlYQQZ1kWp2vNDAje2FVK9EM7fLkk5l9REnmLWHkpzcjN4nlCfWkI-A4ktvspsHI1FWhDO1NsJCg0XZzIXLhpny9LFYzX_Pdz-zauqieXrdwg'); background-size: cover;">
+                </div>
+              </div>
+              <span class="text-xs font-bold text-primary/60">+5k usuários ativos</span>
+            </div>
+          </div>
+        </div>
+        <div class="relative flex flex-col items-center justify-center lg:justify-end">
+          <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -z-10">
+          </div>
+          <!-- Store Buttons -->
+          <div class="flex flex-wrap justify-center items-center gap-4 mt-12 mb-4 z-20">
+            <a href="https://apps.apple.com/us/app/tirzetrack-health-diary/id6773365433" class="hover:scale-105 transition-transform"><img src="assets/app_store_btn.png" class="h-[48px] w-auto" alt="Download on the App Store"></a>
+            <a href="https://play.google.com/store/apps/details?id=com.tirzetrack.tirzetrack" class="hover:scale-105 transition-transform"><img src="assets/google_play_btn.png" class="h-[48px] w-auto" alt="Get it on Google Play"></a>
+          </div>
+          <!-- App Mockup -->
+          <div class="relative w-full max-w-2xl mx-auto scale-100 md:scale-110 mt-10 lg:mt-0">
+            <img alt="TirzeTRACK App Interface" class="w-full h-auto object-contain mix-blend-multiply"
+              src="assets/phone_mockup.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Resources (Asymmetric Bento Grid) -->
+  <section class="pt-10 pb-section-gap bg-surface" id="recursos">
+    <div class="max-w-7xl mx-auto px-container-padding-desktop">
+      <div class="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div class="max-w-xl">
+          <p class="text-[#2A828C] font-label-caps tracking-[0.2em] mb-4">TUDO O QUE VOCÊ PRECISA</p>
+          <h2 class="font-display-lg text-4xl md:text-5xl font-extrabold text-[#2A828C] leading-tight">Recursos incríveis para o seu sucesso.</h2>
+        </div>
+        <p class="text-on-surface/60 max-w-xs text-sm">Ferramentas simples e fáceis de usar para ajudar você a atingir seus objetivos de forma saudável.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+        <!-- Feature 1: Image Overlay -->
+        <div class="md:col-span-8 bg-white rounded-xl p-10 relative overflow-hidden group border border-outline/10 shadow-sm">
+          <div class="relative z-10 max-w-sm">
+            <span class="material-symbols-outlined text-accent text-3xl mb-6">photo_camera</span>
+            <h3 class="font-display-lg text-2xl font-bold mb-4">Câmera Nutricional com IA</h3>
+            <p class="text-on-surface/70 leading-relaxed">Tire uma foto do seu prato e deixe nossa Inteligência Artificial descobrir as calorias e macronutrientes para você, sem nenhuma complicação.</p>
+          </div>
+          <img alt="Camera interface" class="absolute right-0 bottom-0 w-1/2 h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 opacity-20 md:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-Skn2M0X4Yw-BAC7TQ3FlNpTJhZ1LW92e0NbY4gR2A40oSwR31gJI9UPgy_CaRCjwlk61MbLYOO-qbg7rYKLU_hKkAhBELFw2UWIdaTxKj8HgmIFEtlB4BMii_55y6dMpO60zZn-edwXjTJ4VT-zWJ22fOgWiiBuvR-O-lTbFDwGltzIt9kpv0KTt2lkejSkf0X7PQWObV5oXDEZsy4sBd5kDyy5NxJb_7O2prk8NBcX_5eaCLSs">
+        </div>
+        <!-- Feature 2: Dark Accent -->
+        <div class="md:col-span-4 bg-primary rounded-xl p-10 text-white flex flex-col justify-between border border-primary">
+          <span class="material-symbols-outlined text-white text-3xl">vaccines</span>
+          <div>
+            <h3 class="font-display-lg text-2xl font-bold mb-4">Controle de Injeções</h3>
+            <p class="text-white/70 text-sm leading-relaxed">Acompanhe suas doses semanais. Saiba exatamente quando aplicou e quando será a próxima injeção de forma muito fácil.</p>
+          </div>
+        </div>
+        <!-- Feature 3: Small Card -->
+        <div class="md:col-span-4 bg-white border border-outline/10 rounded-xl p-10 shadow-sm flex flex-col justify-between">
+          <span class="material-symbols-outlined text-accent text-3xl">monitor_weight</span>
+          <div>
+            <h3 class="font-display-lg text-xl font-bold mb-2">Acompanhe seu Peso</h3>
+            <p class="text-on-surface/60 text-sm">Acompanhe sua evolução através de gráficos simples e veja o quão perto você está de atingir sua meta.</p>
+          </div>
+        </div>
+        <!-- Feature 4: Wide Overlay -->
+        <div class="md:col-span-8 bg-surface-variant border border-outline/10 rounded-xl p-10 flex flex-col md:flex-row items-center gap-12 overflow-hidden shadow-sm">
+          <div class="flex-1 space-y-4">
+            <span class="material-symbols-outlined text-accent text-3xl">query_stats</span>
+            <h3 class="font-display-lg text-2xl font-bold">Previsão de Resultados</h3>
+            <p class="text-on-surface/70 text-sm">Com base no seu ritmo atual, descubra uma estimativa de quando você alcançará seu peso ideal para se manter sempre motivado.</p>
+          </div>
+          <div class="flex-1 w-full h-48 bg-primary/5 rounded-lg flex items-center justify-center border border-primary/5">
+            <span class="material-symbols-outlined text-primary/20 text-6xl">timeline</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Footer -->
+  <footer class="bg-surface pt-16 pb-12 border-t border-outline/20">
+    <div class="max-w-7xl mx-auto px-container-padding-desktop">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-10">
+        <div class="col-span-2 space-y-6">
+          <div class="flex items-center gap-3">
+            <img src="assets/logo.png" alt="TirzeTRACK Logo" class="w-10 h-10 rounded-full border border-primary/20" />
+            <span class="font-display-lg text-2xl font-extrabold tracking-tighter text-primary">TirzeTRACK</span>
+          </div>
+          <p class="text-on-surface/50 text-sm max-w-xs leading-relaxed">
+            Transformando o acompanhamento de saúde digital através de inteligência de dados e design moderno.
+          </p>
+          <div class="flex items-center gap-4 pt-2">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/tirzetrack.app" target="_blank" rel="noopener noreferrer" class="text-on-surface/40 hover:text-primary transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <!-- Facebook -->
+            <a href="Https://www.facebook.com/share/1BrgHE3Mvs/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="text-on-surface/40 hover:text-primary transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <!-- TikTok -->
+            <a href="Https://vt.tiktok.com/ZSX5P6Lvt/" target="_blank" rel="noopener noreferrer" class="text-on-surface/40 hover:text-primary transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <h5 class="text-xs font-bold uppercase tracking-widest text-primary/40">Produto</h5>
+          <ul class="space-y-4 text-sm font-semibold">
+            <li><a class="hover:text-accent transition-colors" href="parceria.html">Seja um Parceiro</a></li>
+            <li><a class="hover:text-accent transition-colors" href="index.html#recursos">Recursos</a></li>
+            <li><a class="hover:text-accent transition-colors" href="support.html">Suporte e FAQ</a></li>
+          </ul>
+        </div>
+        <div class="space-y-6">
+          <h5 class="text-xs font-bold uppercase tracking-widest text-primary/40">Legal</h5>
+          <ul class="space-y-4 text-sm font-semibold">
+            <li><a class="hover:text-accent transition-colors" href="privacy.html">Privacidade</a></li>
+            <li><a class="hover:text-accent transition-colors" href="terms.html">Termos de Uso</a></li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="pt-8 border-t border-outline/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-primary/30 text-center md:text-left">
+        <p>© 2026 TirzeTRACK — Todos os direitos reservados.</p>
+        <p>Este aplicativo não substitui aconselhamento médico. Consulte sempre seu médico responsável pelo tratamento. .</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Smooth scroll for anchors
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Simple scroll reveal for the phone
+    window.addEventListener('scroll', () => {
+      const phone = document.querySelector('.phone-frame');
+      if (phone) {
+        const val = window.scrollY * 0.1;
+        phone.style.transform = `translateY(${val * -0.2}px) scale(${0.9 + (val * 0.001)})`;
+      }
+    });
+  </script>
+</body>
+
+</html>

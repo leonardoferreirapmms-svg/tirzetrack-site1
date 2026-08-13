@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baixar TirzeTrack</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f8f9fa;
+      color: #0a2540;
+      text-align: center;
+      padding: 20px;
+    }
+    .loader {
+      border: 4px solid #d1d5db;
+      border-top: 4px solid #0a2540;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .fallback {
+      display: none;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      background-color: #0a2540;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="loader" id="loader"></div>
+  <h2>Redirecionando para a loja...</h2>
+  <p>Se você não for redirecionado automaticamente, clique no botão abaixo:</p>
+  
+  <div class="fallback" id="fallback">
+    <a href="https://apps.apple.com/us/app/tirzetrack-health-diary/id6773365433" class="btn" id="btn-ios" style="display:none;">Baixar na App Store</a>
+    <a href="https://play.google.com/store/apps/details?id=com.tirzetrack.app" class="btn" id="btn-android" style="display:none;">Baixar no Google Play</a>
+    <a href="https://tirzetrack.site" class="btn" id="btn-web" style="display:none;">Acessar o Site</a>
+  </div>
+
+  <script>
+    (function() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      var iosUrl = "https://apps.apple.com/us/app/tirzetrack-health-diary/id6773365433";
+      var androidUrl = "https://play.google.com/store/apps/details?id=com.tirzetrack.app";
+      var webUrl = "https://tirzetrack.site";
+
+      var targetUrl = webUrl;
+      var isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+      var isAndroid = /android/i.test(userAgent);
+
+      if (isAndroid) {
+        targetUrl = androidUrl;
+        document.getElementById('btn-android').style.display = 'inline-block';
+      } else if (isIOS) {
+        targetUrl = iosUrl;
+        document.getElementById('btn-ios').style.display = 'inline-block';
+      } else {
+        targetUrl = webUrl;
+        document.getElementById('btn-web').style.display = 'inline-block';
+      }
+
+      // Mostra o botão de fallback após 2 segundos caso o redirecionamento falhe
+      setTimeout(function() {
+        document.getElementById('fallback').style.display = 'block';
+        document.getElementById('loader').style.display = 'none';
+      }, 2000);
+
+      // Atraso sutil antes do redirecionamento para evitar bloqueios agressivos de navegadores in-app
+      setTimeout(function() {
+        window.location.href = targetUrl;
+      }, 300);
+    })();
+  </script>
+</body>
+</html>
